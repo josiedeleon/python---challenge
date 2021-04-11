@@ -55,7 +55,7 @@ with open (csvpath) as csvfile:
 	max_income = income_expense[income_expense.index(max(income_expense))] - income_expense[income_expense.index(max(income_expense))-1]
 
 #The greatest decrease in losses (date and amount) over the entire period
-
+	min_expense = income_expense[income_expense.index(min(income_expense))] - income_expense[income_expense.index(min(income_expense))-1]
 
 # Print Script Analysis
 
@@ -65,7 +65,7 @@ print(f'Total Months:{total_months}')
 print(f'Total:{net_income_expense}')
 print(f'Average Change:{(average_net_change)}')
 print(f'Greatest Increase in Profits:{max_income}')
-print('Greatest Decrease in Profits:')
+print(f'Greatest Decrease in Profits:{min_expense}')
 
 # Export text file with results
 
@@ -83,4 +83,4 @@ with open(output_path,'w', newline = "") as datafile:
 	csvwriter.writerow(f'Total:{net_income_expense}')
 	csvwriter.writerow(f'Average Change:${round(average_net_change,2)}')
 	csvwriter.writerow(f'Greatest Increase in Profits:{max_income}')
-	csvwriter.writerow('Greatest Decrease in Profits:')
+	csvwriter.writerow(f'Greatest Decrease in Profits:{min_expense}')
