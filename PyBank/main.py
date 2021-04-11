@@ -33,11 +33,9 @@ with open (csvpath) as csvfile:
 
 #The total number of months included in the dataset
 		total_months = len(months)
-		print(total_months)
 
 #The net total amount of "Profit/Losses" over the entire period
 		net_income_expense = sum(income_expense)
-		print(net_income_expense)
 
 #The changes in "Profit/Losses" over the entire period 
 	net_income_expenses = len(months)-1
@@ -45,11 +43,9 @@ with open (csvpath) as csvfile:
 	for i in range(len(income_expense)-1):
 	 	net_change.append(float(income_expense[i + 1])- float(income_expense[i]))
 	 	net_changes = sum(net_change)
-	 	print(net_changes)
 	
 #The average of those changes in "Profit/Losses"
 	average_net_change = net_changes/net_income_expenses
-	print(average_net_change)
 	
 #The greatest increase in profits (date and amount) over the entire period
 	max_income = income_expense[income_expense.index(max(income_expense))] - income_expense[income_expense.index(max(income_expense))-1]
