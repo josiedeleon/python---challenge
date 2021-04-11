@@ -66,7 +66,7 @@ print(f'Greatest Decrease in Profits:{min_expense}')
 # Export text file with results
 
 #Create path for text results
-output_path = 'results.txt'
+output_path = 'Analysis/results.txt'
 with open(output_path,'w', newline = "") as datafile:
 
 #Setup csv writer 
