@@ -9,40 +9,37 @@ import csv
 csvpath = os.path.join("Resources","election_data.csv")
 
 #Set Variables
-voter_id = []
-county = []
-candidate =[]
-total_votes = []
+county_candidate = []
+candidate_num_votes = []
+candidates_unique = []
+total_votes = 0
+percent_votes = []
 election_winner = []
 
-
 #Open csv file and set up reader
-with open (csvpath) as csvfile:
+with open (csvpath, newline= "") as csvfile:
 	csvreader = csv.reader(csvfile, delimiter= ",")
 	reader = csv.reader(csvfile)
 	next(reader, None)
 
 	for row in reader:
-		vote = row[0]
-		voter_id.append(vote)
+#total votes
+		total_votes += 1
+#list candidates who received votes
 		county_candidate = row[2]
-		candidate.append(county_candidate)
 
-#The total number of votes cast
-	total_votes = len(voter_id)
-	print(total_votes)
-
-#A complete list of candidates who received votes
-
+		if county_candidate in candidates_unique:
+			county_candidate_index = candidates_unique.index(county_candidate)
+			candidate_num_votes[county_candidate_index] = candidate_num_votes[county_candidate_index]+1	
+		else:
+			candidates_unique.append(county_candidate)
+			candidate_num_votes.append(1)
 
 #The percentage of votes each candidate won
 
-
 #The total number of votes each candidate won
 
-
 #The winner of the election based on popular vote.
-
 
 # Print Script Analysis
 
@@ -58,7 +55,7 @@ print('-------------------------')
 # Export text file with results
 
 #Create path for text results
-output_path = 'results.txt'
+output_path = 'Analysis/results.txt'
 with open(output_path,'w', newline = "") as datafile:
 
 #Setup csv writer 
