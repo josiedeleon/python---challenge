@@ -40,11 +40,17 @@ with open (csvpath) as csvfile:
 		print(net_income_expense)
 
 #The changes in "Profit/Losses" over the entire period 
+	net_income_expenses = len(months)-1
 
-
+	for i in range(len(income_expense)-1):
+	 	net_change.append(float(income_expense[i + 1])- float(income_expense[i]))
+	 	net_changes = sum(net_change)
+	 	print(net_changes)
+	
 #The average of those changes in "Profit/Losses"
-
-
+	average_net_change = net_changes/net_income_expenses
+	print(average_net_change)
+	
 #The greatest increase in profits (date and amount) over the entire period
 
 
@@ -57,7 +63,7 @@ print('Financial Analysis')
 print('-------------------------')
 print(f'Total Months:{total_months}')
 print(f'Total:{net_income_expense}')
-print('Average Change:')
+print(f'Average Change:{(average_net_change)}')
 print('Greatest Increase in Profits:')
 print('Greatest Decrease in Profits:')
 
@@ -75,6 +81,6 @@ with open(output_path,'w', newline = "") as datafile:
 	csvwriter.writerow(['-------------------------'])
 	csvwriter.writerow(f'Total Months:{total_months}')
 	csvwriter.writerow(f'Total:{net_income_expense}')
-	csvwriter.writerow('Average Change:')
+	csvwriter.writerow(f'Average Change:${round(average_net_change,2)}')
 	csvwriter.writerow('Greatest Increase in Profits:')
 	csvwriter.writerow('Greatest Decrease in Profits:')
