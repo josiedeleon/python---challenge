@@ -35,11 +35,14 @@ with open (csvpath) as csvfile:
 		total_months = len(months)
 		print(total_months)
 
-
 #The net total amount of "Profit/Losses" over the entire period
-		
+		net_income_expense = sum(income_expense)
+		print(net_income_expense)
 
-# the changes in "Profit/Losses" over the entire period, then find the average of those changes
+#The changes in "Profit/Losses" over the entire period 
+
+
+#The average of those changes in "Profit/Losses"
 
 
 #The greatest increase in profits (date and amount) over the entire period
@@ -48,13 +51,12 @@ with open (csvpath) as csvfile:
 #The greatest decrease in losses (date and amount) over the entire period
 
 
-
 # Print Script Analysis
 
 print('Financial Analysis')
 print('-------------------------')
 print(f'Total Months:{total_months}')
-print('Total:')
+print(f'Total:{net_income_expense}')
 print('Average Change:')
 print('Greatest Increase in Profits:')
 print('Greatest Decrease in Profits:')
@@ -72,7 +74,7 @@ with open(output_path,'w', newline = "") as datafile:
 	csvwriter.writerow(['Financial Analysis'])
 	csvwriter.writerow(['-------------------------'])
 	csvwriter.writerow(f'Total Months:{total_months}')
-	csvwriter.writerow('Total:')
+	csvwriter.writerow(f'Total:{net_income_expense}')
 	csvwriter.writerow('Average Change:')
 	csvwriter.writerow('Greatest Increase in Profits:')
 	csvwriter.writerow('Greatest Decrease in Profits:')
