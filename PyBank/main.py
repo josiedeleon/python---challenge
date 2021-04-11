@@ -28,11 +28,32 @@ with open (csvpath) as csvfile:
 
 #The greatest decrease in losses (date and amount) over the entire period
 
+
+
 # Print Script Analysis
 
-#Create path for results in text
+print('Financial Analysis')
+print('-------------------------')
+print('Total Months:')
+print('Total:')
+print('Average Change:')
+print('Greatest Increase in Profits:')
+print('Greatest Decrease in Profits:')
+
+# Export text file with results
+
+#Create path for text results
 output_path = 'results.txt'
 with open(output_path,'w', newline = "") as datafile:
 
 #Setup csv writer 
-	csv.wrtier= csv.writer(datafile)
+	csvwriter= csv.writer(datafile)
+
+#Write Results
+	csvwriter.writerow(['Financial Analysis'])
+	csvwriter.writerow(['-------------------------'])
+	csvwriter.writerow('Total Months:')
+	csvwriter.writerow('Total:')
+	csvwriter.writerow('Average Change:')
+	csvwriter.writerow('Greatest Increase in Profits:')
+	csvwriter.writerow('Greatest Decrease in Profits:')
